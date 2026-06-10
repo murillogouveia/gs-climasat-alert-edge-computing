@@ -477,7 +477,7 @@ ArduinoJson
 
 ## Link do Vídeo da Solução
 
-[Vídeo da solução](COLE_O_LINK_AQUI)
+[Vídeo da solução](https://youtu.be/thzLjDbHwK8)
 
 
 ---
