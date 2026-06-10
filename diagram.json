@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "author": "Murillo Gouveia",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 115.8, "left": -221.4, "attrs": {} },
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -147, "left": 146.8, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -210, "left": 190, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultra1",
+      "top": -132.9,
+      "left": -186.5,
+      "attrs": { "distance": "30" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 198.4,
+      "left": 226.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": -49.3,
+      "left": 595,
+      "attrs": { "value": "0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 121.4,
+      "left": 499.2,
+      "attrs": { "color": "red", "label": "SOS" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledGreen",
+      "top": -65,
+      "left": 200,
+      "attrs": { "color": "green", "label": "NORMAL" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledYellow",
+      "top": -65,
+      "left": 310,
+      "attrs": { "color": "yellow", "label": "ATENCAO" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledRed",
+      "top": -65,
+      "left": 420,
+      "attrs": { "color": "red", "label": "CRITICO" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rGreen",
+      "top": 5,
+      "left": 195,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rYellow",
+      "top": 5,
+      "left": 305,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-resistor", "id": "rRed", "top": 5, "left": 415, "attrs": { "value": "220" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer1",
+      "top": -151.2,
+      "left": 481.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "bb1:bp.1", "red", [ "v47.9", "h167", "v-192", "h86.4", "v-123.9" ] ],
+    [
+      "uno:GND.1",
+      "bb1:bn.1",
+      "black",
+      [ "h-9.3", "v-28.8", "h-124.8", "v-249.6", "h374.4", "v192", "h58.4" ]
+    ],
+    [ "bb1:bn.5", "dht1:GND", "black", [] ],
+    [ "bb1:bp.18", "lcd1:VCC", "red", [ "h-10.4", "v133.5", "h-252.8", "v67.1" ] ],
+    [ "bb1:bn.18", "lcd1:GND", "black", [ "v133.1", "h-253.6", "v48" ] ],
+    [ "uno:A4", "lcd1:SDA", "green", [ "v9.5", "h42.6", "v-67.4" ] ],
+    [ "uno:A5", "lcd1:SCL", "blue", [ "v19.1", "h42.7", "v-67.5" ] ],
+    [ "uno:A0", "pot1:SIG", "orange", [ "v38.3", "h599.4" ] ],
+    [ "bb1:bn.28", "btn1:2.l", "black", [ "h-0.8", "v104.1" ] ],
+    [ "rGreen:2", "ledGreen:A", "green", [ "h-4.2", "v-33.65" ] ],
+    [ "ledGreen:C", "bb1:bn.8", "black", [ "h44.2", "v72.3" ] ],
+    [ "rYellow:2", "ledYellow:A", "yellow", [ "h1", "v-33.65" ] ],
+    [ "ledYellow:C", "bb1:bn.14", "black", [ "h-27.4", "v72.3" ] ],
+    [ "rRed:2", "ledRed:A", "red", [ "h-3.4", "v-33.65" ] ],
+    [ "ledRed:C", "bb1:bn.20", "black", [] ],
+    [ "buzzer1:2", "bb1:bn.30", "black", [] ],
+    [ "ultra1:ECHO", "uno:12", "limegreen", [ "v0" ] ],
+    [ "ultra1:TRIG", "uno:13", "cyan", [ "v0" ] ],
+    [ "btn1:1.l", "uno:2", "#8f4814", [ "h-19.2", "v-28.8", "h-464.9" ] ],
+    [ "rRed:1", "uno:3", "orange", [ "v85.35", "h-2.2" ] ],
+    [ "rYellow:1", "uno:4", "yellow", [ "v75.75", "h-305" ] ],
+    [ "dht1:SDA", "uno:6", "blue", [ "v27.9", "h-89.7", "v48", "h-147.7" ] ],
+    [ "rGreen:1", "uno:5", "green", [ "v-1.05", "h-208.4" ] ],
+    [ "pot1:GND", "bb1:bn.39", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:bp.41", "red", [ "v0" ] ],
+    [ "ultra1:VCC", "bb1:bp.6", "red", [ "v105.6", "h364.8" ] ],
+    [ "dht1:VCC", "bb1:bp.3", "red", [ "v0" ] ],
+    [ "ultra1:GND", "bb1:bn.10", "black", [ "v115.2", "h373.2" ] ],
+    [ "buzzer1:1", "uno:7", "violet", [ "v182.4", "h-547.2", "v-9.6" ] ],
+    [ "rYellow:2", "bb1:21b.j", "", [ "$bb" ] ],
+    [ "buzzer1:1", "bb1:36t.d", "", [ "$bb" ] ],
+    [ "buzzer1:2", "bb1:37t.d", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
